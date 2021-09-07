@@ -39,8 +39,9 @@ function generateLink() {
   let selectedValue = $("#type").val();
   let number="919566903043"
   let url = "https://wa.me/";
-  let end_url = `${url}${number}?text=${name}${phone}`;
-  window.open(end_url, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+  let end_url = `${url}${number}?text=Name:${name}%0a Phone number :${phone} %0a Shoot Type :${selectedValue}`;
+
+  window.open(end_url, '_blank').focus();
 }
 function hide() {
     document.getElementById('boxes').style.display = 'none';
@@ -82,6 +83,7 @@ function hide() {
                   </div></br></br>
                 <button type="button" onclick="generateLink()"class="btn btn-primary mb-2"  >Send</button>
                 </br><p onclick="hide()">Skip</p>
+                <p id="end_url"></p>
             
                
 
