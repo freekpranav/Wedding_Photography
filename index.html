@@ -37,9 +37,11 @@ function generateLink() {
   let phone = document.form_main.phone.value;
   let selectedText = $("#type").find("option:selected").text();
   let selectedValue = $("#type").val();
+  let budget_text=$("#budget").find("option:selected").text();
+  let budget_value = $("#budget").val();
   let number="919566903043"
   let url = "https://wa.me/";
-  let end_url = `${url}${number}?text=Name:${name}%0a Phone number :${phone} %0a Shoot Type :${selectedValue}`;
+  let end_url = `${url}${number}?text=Name:${name}%0a Phone number :${phone} %0a Shoot Type :${selectedValue} %0a Budget : ${budget_value}`;
 
   window.open(end_url, '_blank').focus();
 }
@@ -66,13 +68,14 @@ function hide() {
             Book a Shoot </h3></br>
           <div id="lorem">
               <center>
-              <form name="form_main" action="" >
+              <form action="mail.php" method="post"  name="form_main" >
 
                 <input type="text" class="form-control"name="name" id="name" placeholder="Name"></br>
                 <input type="number" class="form-control" name="number" id="phone" placeholder="Phone number"></br>
                 <div class="form-group">
                
-                    <select class="form-control"  id="type">
+                    <select class="form-control"  id="type" name="type">
+                     
                       <option>Wedding</option>
                       <option>Product</option>
                       <option>Family Function</option>
@@ -80,8 +83,20 @@ function hide() {
                       <option>Interior / Property shoot</option>
                       <option>Other</option>
                     </select>
-                  </div></br></br>
-                <button type="button" onclick="generateLink()"class="btn btn-primary mb-2"  >Send</button>
+                  </div>
+                  <div class="form-group">
+               
+                    <select class="form-control" name="budget" id="budget">
+                     
+                      <option>Below 15,000/</option>
+                      <option>15,000/- 30,000/</option>
+                      <option>30,000/ - 50,000/</option>
+                      <option>50,000/ - 100,000/</option>
+                      <option>More than 100,000/</option>
+                      
+                    </select>
+                  </div>
+                <button type="button" name="submit" onclick="generateLink()"class="btn btn-primary mb-2"  >Send</button>
                 </br><p onclick="hide()">Skip</p>
                 <p id="end_url"></p>
             
@@ -311,7 +326,7 @@ function hide() {
             <!-- ***** Section Title Start ***** -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="center-heading">
+                    <div class="center-heading style">
                         <h2 class="section-title">What do they say?</h2>
                     </div>
                 </div>
@@ -396,7 +411,7 @@ function hide() {
             <!-- ***** Section Title Start ***** -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="center-heading">
+                    <div class="center-heading style">
                         <h2 class="section-title">Pricing Plans</h2>
                     </div>
                 </div>
@@ -538,7 +553,7 @@ function hide() {
             <!-- ***** Section Title Start ***** -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="center-heading">
+                    <div class="center-heading style">
                         <h2 class="section-title">Portfolio</h2>
                     </div>
                 </div>
@@ -662,8 +677,8 @@ function hide() {
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <h5 class="margin-bottom-30">Keep in touch</h5>
                     <div class="contact-text">
-                        <p>No 128, North St,<br> Chennai<br>TamilNadu- 600130
-                       </p>
+                        <p>A-38, D, Mall, Shakti Khand 2,</br> Indirapuram, </br> Ghaziabad,</br>  Uttar Pradesh 201014
+                        </br>+91-9015860798  </p>
                     </div>
                 </div>
                 <!-- ***** Contact Text End ***** -->
@@ -675,24 +690,29 @@ function hide() {
                           <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12">
                               <fieldset>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                                <input name="name" style="border-color: blueviolet;" type="text" class="form-control" id="name" placeholder="Full Name" required="">
                               </fieldset>
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12">
                               <fieldset>
-                                <input name="email" type="email" class="form-control" id="email" placeholder="E-Mail Address" required="">
+                                <input name="email" type="email"style="border-color: blueviolet;" class="form-control" id="email" placeholder="E-Mail Address" required="">
                               </fieldset>
                             </div>
                             <div class="col-lg-12">
                               <fieldset>
-                                <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                                <textarea name="message" rows="6" style="border-color: blueviolet;"class="form-control" id="message" placeholder="Your Message" required=""></textarea>
                               </fieldset>
                             </div>
+                           
                             <div class="col-lg-12">
+                                <center>
                               <fieldset>
+                              
                                 <button type="submit" id="form-submit" class="main-button">Send Message</button>
                               </fieldset>
+                            </center>
                             </div>
+                            
                           </div>
                         </form>
                     </div>
@@ -719,7 +739,7 @@ function hide() {
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="copyright">Copyright &copy; 2021 Pranav R</p>
+                    <p class="copyright">Copyright &copy; 2021 <a href="www.onlineapes.com">Online Apes</a></p>
                 </div>
             </div>
         </div>
